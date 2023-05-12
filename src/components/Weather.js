@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../stylesheets/Weather.css";
-import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
 //import WeatherForecast from "./WeatherForecast";
 
 
 function Weather(props) {
     const [ready, setReady] = useState(false);
-    const [weatherData, setWeatherData] = useState({})
-    const [City, setCity] = useState(props.defaultCity);
+    const [weatherData, setWeatherData] = useState({ ready: false})
+    const [city, setCity] = useState(props.defaultCity);
 
 
-    const handleSubmit = (e) => {
-        
+ 
+
+    const searchCity = (e) => {
+        const apiKey = "270106a3f5a21174f5ff707d4e85434d";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(handleResponse);
+
     }
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    searchCity();
+}
 
     const handleCityChange = (e) => {
         setCity(e.target.value)
@@ -23,6 +32,7 @@ function Weather(props) {
     const handleResponse = (response) => {
         console.log(response.data);
         setWeatherData({
+            ready:true,
             city: response.data.name,
             description: response.data.weather[0].description,
             date: new Date(response.data.dt * 1000),
@@ -33,11 +43,11 @@ function Weather(props) {
             maxTemp: response.data.main.temp_max,
             minTemp: response.data.main.temp_min,
         })
-        setReady(true);
+
     }
 
 
-    if (ready) {
+    if (weatherData.ready) {
         return (
             <div className="Weather">
                 <div className='container'>
@@ -48,6 +58,7 @@ function Weather(props) {
                                     type="search"
                                     placeholder="Enter a city..."
                                     className="search"
+                                    autoFocus="on"
                                     onChange={handleCityChange}
                                 />
                             </div>
@@ -96,10 +107,7 @@ function Weather(props) {
             </div>
         );
     } else {
-        const apiKey = "270106a3f5a21174f5ff707d4e85434d";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${City}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
-
+        searchCity();
         return 'Loading...'
     }
 
