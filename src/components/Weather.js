@@ -14,7 +14,7 @@ function Weather(props) {
 
     const handleResponse = (response) => {
         setWeatherData({
-            setReady: true,
+            ready: true,
             coordinates: response.data.coord,
             city: response.data.name,
             description: response.data.weather[0].description,
