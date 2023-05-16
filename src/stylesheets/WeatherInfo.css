@@ -17,7 +17,7 @@
     font-size: 34px;
   font-weight: 600;
   margin-top:0;
-  margin-left: 18%;
+  margin-left: 20%;
   padding-top: 0;
   color: #ffe2e2;
 text-shadow:
@@ -30,7 +30,7 @@ text-shadow:
 }
 
 .WeatherInfo li{
-  margin-left:6%;
+  margin-left:8%;
   font-size: 20px;
   font-weight: 500;
   padding: 0;

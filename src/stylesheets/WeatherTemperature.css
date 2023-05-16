@@ -27,15 +27,34 @@ text-shadow:
 	              0 20px 20px rgba(54, 54, 54,.3);
 }
 
+
+.separator {
+     color: #707070;
+     margin: 0 4px;
+}
+
 .unit {
   text-decoration:none;
   position: relative;
   top: -60px;
-  font-size: 20px;
+  font-size: 22px;
   margin-left: 5px;
-  color:#666666;
+    color: #ffe2e2;
+   text-shadow:
+	            0 0 5px rgba(54, 54, 54, 0.2),
+	            0 1px 3px rgba(54, 54, 54,.2),
+	             0 3px 5px rgba(54, 54, 54,.2),
+	            0 5px 10px rgba(54, 54, 54,.2),
+	              0 10px 10px rgba(54, 54, 54,.2),
+	              0 20px 20px rgba(54, 54, 54,.3);
 }
 
 .temp-conversion a {
   text-decoration:none;
+  padding: 0 4px;
+ color: #7c7c7c;
+}
+
+.temp-conversion a:hover{
+ color: #ffe2e2;
 }
