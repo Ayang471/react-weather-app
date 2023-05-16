@@ -13,9 +13,9 @@ function Weather(props) {
 
     const handleResponse = (response) => {
         setWeatherData({
-            coordinates: response.data.coord,
             city: response.data.name,
             description: response.data.weather[0].description,
+            coordinates: response.data.coord,
             date: new Date(response.data.dt * 1000),
             temperature: response.data.main.temp,
             humidity: response.data.main.humidity,
@@ -44,6 +44,7 @@ function Weather(props) {
     }
 
     const handleCityChange = (e) => {
+        e.preventDefault();
         setCity(e.target.value)
     }
 
@@ -81,7 +82,7 @@ function Weather(props) {
         );
     } else {
         searchCity();
-        return 'Loading...'
+        return 'Loading...';
     }
 
 }
