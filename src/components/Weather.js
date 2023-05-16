@@ -2,37 +2,39 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../stylesheets/Weather.css";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 //import WeatherForecast from "./WeatherForecast";
 
 
 function Weather(props) {
     const [ready, setReady] = useState(false);
-    const [weatherData, setWeatherData] = useState({ ready: false})
+    const [weatherData, setWeatherData] = useState({ ready: false })
     const [city, setCity] = useState(props.defaultCity);
 
 
- 
+
 
     const searchCity = (e) => {
         const apiKey = "270106a3f5a21174f5ff707d4e85434d";
+        /*alternative KEY = 9412b2adf899e4d1b182d55750bb4d03*/
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
+    //axios.get(apiUrl).then(handleResponse);
 
     }
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    searchCity();
-}
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        searchCity();
+    }
 
     const handleCityChange = (e) => {
         setCity(e.target.value)
     }
 
     const handleResponse = (response) => {
-        console.log(response.data);
         setWeatherData({
-            ready:true,
+            ready: true,
+            coordinates: response.data.coord,
             city: response.data.name,
             description: response.data.weather[0].description,
             date: new Date(response.data.dt * 1000),
@@ -53,55 +55,25 @@ const handleSubmit = (e) => {
                 <div className='container'>
                     <form onSubmit={handleSubmit}>
                         <div className="row">
-                            <div className="col">
+                            <div className="col-9">
                                 <input
                                     type="search"
                                     placeholder="Enter a city..."
                                     className="search"
-                                    autoFocus="on"
                                     onChange={handleCityChange}
                                 />
                             </div>
-                            <div className="col">
-                                <input
-                                    type="submit"
-                                    value="Search"
-                                    className="btn"
-                                />
-                            </div>
+                                <div className='col-3'>
+                                    <input
+                                        type="submit"
+                                        value="Search"
+                                        className="btn"
+                                    />
+                                </div>
                         </div>
-                        
                     </form>
-                    <WeatherInfo data={weatherData}/>
-                    <div className='weather-forecast'>
-                        <div className='row'>
-                            <div className='col'>
-                                <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                                <p>{Math.round(weatherData.maxTemp)}° | {Math.round(weatherData.minTemp)}°</p>
-                            </div>
-                            <div className='col'>
-                                <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                                <p>{Math.round(weatherData.maxTemp)}° | {Math.round(weatherData.minTemp)}°</p>
-                            </div>
-                            <div className='col'>
-                                <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                                <p>{Math.round(weatherData.maxTemp)}° | {Math.round(weatherData.minTemp)}°</p>
-                            </div>
-                            <div className='col'>
-                                <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                                <p>{Math.round(weatherData.maxTemp)}° | {Math.round(weatherData.minTemp)}°</p>
-                            </div>
-                            <div className='col'>
-                                <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                                <p>{Math.round(weatherData.maxTemp)}° | {Math.round(weatherData.minTemp)}°</p>
-                            </div>
-                            <div className='col'>
-                                <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                                <p>{Math.round(weatherData.maxTemp)}° | {Math.round(weatherData.minTemp)}°</p>
-                            </div>
-                        </div>
-
-                    </div>
+                    <WeatherInfo data={weatherData} />
+                    <WeatherForecast coordinates={weatherData.coordinates} />
                 </div>
 
             </div>

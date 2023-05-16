@@ -1,27 +1,34 @@
 import React from "react";
-import "../stylesheets/Weather.css";
+import "../stylesheets/WeatherInfo.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcons from "./WeatherIcons";
+import WeatherTemperature from "./WeatherTemperature";
+
 
 function WeatherInfo(props) {
     return (
         <div className="WeatherInfo">
             <div className='row'>
-                <h1>{props.data.city}</h1>
-                <div className='col'>
-                    <ul className='city-info'>
-                        <li><FormattedDate date={props.data.date} /></li>
-                        <li>{props.data.description}</li>
-                    </ul>
-                </div>
-                <div className='row'>
+             <div className='city-and-info'>
                     <div className='col'>
-                        {props.data.icon}
-                        <img src='https://cdn-icons-png.flaticon.com/512/4052/4052984.png' alt='icon' width='60px' />
-                        <strong> {Math.round(props.data.temperature)} </strong><span>C | F°</span>
+
+                        <h1>{props.data.city}</h1>
+                        <ul className='city-info'>
+                            <li><FormattedDate date={props.data.date} /></li>
+                            <li>{props.data.description}</li>
+                        </ul>
                     </div>
+             </div>
+                <div className='row'>
+                        <div className='col'>
+                            <div className='temperature-icon'>
+                            <WeatherIcons code={props.data.icon} alt={props.data.description} size={80}/>
+                            <WeatherTemperature celsius={props.data.temperature} />
+                            </div>
+                        </div>
                     <div className='col'>
                         <ul>
-                            <li>Precipitation: <span>{Math.round(props.data.precipitation)}</span></li>
+                           {/* <li>Precipitation: <span>{Math.round(props.data.precipitation)}</span></li>*/}
                             <li>Humidity:<span>{Math.round(props.data.humidity)} %</span></li>
                             <li>Wind: <span>{Math.round(props.data.wind)} km/h</span></li>
                         </ul>
