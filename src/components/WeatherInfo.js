@@ -11,7 +11,6 @@ function WeatherInfo(props) {
             <div className='row'>
              <div className='city-and-info'>
                     <div className='col'>
-
                         <h1>{props.data.city}</h1>
                         <ul className='city-info'>
                             <li><FormattedDate date={props.data.date} /></li>
@@ -22,7 +21,7 @@ function WeatherInfo(props) {
                 <div className='row'>
                         <div className='col'>
                             <div className='temperature-icon'>
-                            <WeatherIcons code={props.data.icon} alt={props.data.description} size={80}/>
+                            <WeatherIcons code={props.data.icon} alt={props.data.description} size={100}/>
                             <WeatherTemperature celsius={props.data.temperature} />
                             </div>
                         </div>
