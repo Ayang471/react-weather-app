@@ -21,9 +21,11 @@ function WeatherForecastDays(props) {
     }
 
   return (
-    <div>
+    <div className='forecast-section'>
           <div className='forecast-day'>{day()}</div>
-          <WeatherIcons code={props.data.weather[0].icon} size={45} />
+          <div className='forecast-icon'>
+              <WeatherIcons code={props.data.weather[0].icon} size={45}/>
+          </div>
           <div className='weather-forecast-temperature'>
               <span className='forecast-max-temp'>{maxTemp()}°</span>
               |

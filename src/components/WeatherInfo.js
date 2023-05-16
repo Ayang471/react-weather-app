@@ -15,7 +15,7 @@ function WeatherInfo(props) {
                         <h1>{props.data.city}</h1>
                         <ul className='city-info'>
                             <li><FormattedDate date={props.data.date} /></li>
-                            <li>{props.data.description}</li>
+                            <li className='text-capitalize'>{props.data.description}</li>
                         </ul>
                     </div>
              </div>
