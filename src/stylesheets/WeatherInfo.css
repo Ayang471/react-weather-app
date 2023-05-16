@@ -1,5 +1,5 @@
 .WeatherInfo .row .city-and-info {
-    width: 250px;
+    width: 350px;
     border-radius: 12px;
     padding: 0;
 }
@@ -14,10 +14,10 @@
 }
 
 .WeatherInfo  .row h1{
-    font-size: 34px;
+    font-size: 32px;
   font-weight: 600;
   margin-top:0;
-  margin-left: 20%;
+  margin-left: 16%;
   padding-top: 0;
   color: #ffe2e2;
 text-shadow:
