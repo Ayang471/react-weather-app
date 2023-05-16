@@ -1,0 +1,12 @@
+.weather-forecast{
+   text-align: center;
+}
+
+.weather-forecast .forecast-max-temp{
+    margin-right: 5px;
+}
+
+.weather-forecast .forecast-min-temp {
+opacity: 0.7;
+margin-left: 5px;
+}
