@@ -12,28 +12,9 @@ function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
 
 
-
-
-    const searchCity = (e) => {
-        const apiKey = "270106a3f5a21174f5ff707d4e85434d";
-        /*alternative KEY = 9412b2adf899e4d1b182d55750bb4d03*/
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    //axios.get(apiUrl).then(handleResponse);
-
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        searchCity();
-    }
-
-    const handleCityChange = (e) => {
-        setCity(e.target.value)
-    }
-
     const handleResponse = (response) => {
         setWeatherData({
-            ready: true,
+            setReady: true,
             coordinates: response.data.coord,
             city: response.data.name,
             description: response.data.weather[0].description,
@@ -47,6 +28,26 @@ function Weather(props) {
         })
 
     }
+
+
+    const searchCity = (e) => {
+        const apiKey = "270106a3f5a21174f5ff707d4e85434d";
+        /*alternative KEY = 9412b2adf899e4d1b182d55750bb4d03*/
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        searchCity();
+    }
+
+    const handleCityChange = (e) => {
+        setCity(e.target.value)
+    }
+
+
 
 
     if (weatherData.ready) {
