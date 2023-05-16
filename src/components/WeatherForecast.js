@@ -24,7 +24,7 @@ function WeatherForecast(props) {
                                     <WeatherForecastDays data={dailyForecast} />
                                 </div>
                             );
-                        }
+                        } return null
                     })}
                 </div>
             </div>
