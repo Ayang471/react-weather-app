@@ -1,5 +1,5 @@
 .Weather .container   {
-   max-width: 800px;
+  max-width: 800px;
   height: 550px;
   border-radius: 30px;
   background: #e0e0e0;
@@ -9,11 +9,15 @@
 .Weather .container form {
     display: flex;
     flex-wrap:wrap;
-    padding: 5% 6% 2% 30%;
+    padding: 5% 6% 2% 5%;
+}
+
+.Weather .container form .row .col{
+  padding: 0;
 }
 
 .Weather .container form .row .search{
-  padding: 12px 100px 12px 55px;
+  padding: 12px 100px 12px 100px;
   box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border-color:#ffe2e2;
   border-style: solid;
