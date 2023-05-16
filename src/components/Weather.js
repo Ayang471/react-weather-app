@@ -7,14 +7,12 @@ import WeatherForecast from "./WeatherForecast";
 
 
 function Weather(props) {
-    const [ready, setReady] = useState(false);
     const [weatherData, setWeatherData] = useState({ ready: false })
     const [city, setCity] = useState(props.defaultCity);
 
 
     const handleResponse = (response) => {
         setWeatherData({
-            ready: true,
             coordinates: response.data.coord,
             city: response.data.name,
             description: response.data.weather[0].description,
@@ -25,7 +23,9 @@ function Weather(props) {
             icon: response.data.weather[0].icon,
             maxTemp: response.data.main.temp_max,
             minTemp: response.data.main.temp_min,
+            ready: true,
         })
+       
 
     }
 
