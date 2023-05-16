@@ -1,0 +1,41 @@
+
+
+.temperature-icon{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 0 45px;
+}
+
+.temp-conversion{
+  margin: 25px 0 0 15px;
+}
+
+.temp{
+  font-size: 64px;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+   position: relative;
+  top: -25px;
+ color: #ffe2e2;
+text-shadow:
+	            0 0 5px rgba(54, 54, 54, 0.05),
+	            0 1px 3px rgba(54, 54, 54,.2),
+	             0 3px 5px rgba(54, 54, 54,.2),
+	            0 5px 10px rgba(54, 54, 54,.2),
+	              0 10px 10px rgba(54, 54, 54,.2),
+	              0 20px 20px rgba(54, 54, 54,.3);
+}
+
+.unit {
+  text-decoration:none;
+  position: relative;
+  top: -60px;
+  font-size: 20px;
+  margin-left: 5px;
+  color:#666666;
+}
+
+.temp-conversion a {
+  text-decoration:none;
+}
