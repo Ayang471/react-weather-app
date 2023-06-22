@@ -1,4 +1,4 @@
-Project hosted on Netlify: https://sensational-moonbeam-d55027.netlify.app/
+Project hosted on Netlify: https://ay-weather-app.netlify.app/
 
 # Getting Started with Create React App
 
